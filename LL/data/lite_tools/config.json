@@ -1,0 +1,417 @@
+{
+  "debug": {
+    "mainConsoleToFile": false,
+    "console": false,
+    "mainConsole": false,
+    "autoCompileScss": false,
+    "showWeb": false,
+    "showChannedCommunication": false
+  },
+  "keywordReminder": {
+    "enabled": false,
+    "keyList": []
+  },
+  "localEmoticons": {
+    "enabled": false,
+    "quickEmoticons": false,
+    "timeSort": false,
+    "showFileName": false,
+    "quickEmoticonsAutoInputOnlyOne": false,
+    "quickEmoticonsActiveKey": "/",
+    "sendBigImage": false,
+    "majorization": true,
+    "commonlyEmoticons": false,
+    "copyFileTolocalEmoticons": false,
+    "toLeftSlot": false,
+    "hoverShowCommonlyEmoticons": false,
+    "commonlyNum": 20,
+    "recentlyNum": 0,
+    "rowsSize": 6,
+    "ffmpegPath": "",
+    "tgsToGifPath": "",
+    "tgBotToken": "",
+    "localPath": ""
+  },
+  "sidebar": {
+    "top": [
+      {
+        "name": "消息",
+        "disabled": false,
+        "id": -1
+      },
+      {
+        "name": "联系人",
+        "disabled": false,
+        "id": -1
+      },
+      {
+        "name": "短视频",
+        "disabled": false,
+        "id": -1
+      },
+      {
+        "name": "腾讯文档",
+        "disabled": true,
+        "id": -1
+      },
+      {
+        "name": "QQ游戏",
+        "disabled": true,
+        "id": -1
+      },
+      {
+        "name": "自选股",
+        "disabled": true,
+        "id": -1
+      },
+      {
+        "name": "腾讯网",
+        "disabled": true,
+        "id": -1
+      },
+      {
+        "name": "微云",
+        "disabled": false,
+        "id": -1
+      },
+      {
+        "name": "QQ音乐",
+        "disabled": true,
+        "id": -1
+      },
+      {
+        "name": "QQ钱包",
+        "disabled": true,
+        "id": -1
+      },
+      {
+        "name": "更多",
+        "disabled": true,
+        "id": -1
+      },
+      {
+        "name": "空间",
+        "disabled": true,
+        "id": -1
+      },
+      {
+        "name": "频道",
+        "disabled": false,
+        "id": -1
+      },
+      {
+        "name": "游戏",
+        "disabled": true,
+        "id": -1
+      },
+      {
+        "name": "空间",
+        "id": 4,
+        "disabled": true
+      },
+      {
+        "name": "腾讯频道",
+        "id": 3,
+        "disabled": false
+      },
+      {
+        "name": "游戏",
+        "id": 9,
+        "disabled": true
+      },
+      {
+        "name": "QQ游戏",
+        "id": 12,
+        "disabled": true
+      },
+      {
+        "name": "腾讯文档",
+        "id": 11,
+        "disabled": true
+      },
+      {
+        "name": "自选股",
+        "id": 13,
+        "disabled": true
+      },
+      {
+        "name": "腾讯网",
+        "id": 14,
+        "disabled": true
+      },
+      {
+        "name": "QQ音乐",
+        "id": 16,
+        "disabled": true
+      },
+      {
+        "name": "短视频",
+        "id": 6,
+        "disabled": false
+      },
+      {
+        "name": "QQ钱包",
+        "id": 18,
+        "disabled": true
+      },
+      {
+        "name": "微云",
+        "id": 15,
+        "disabled": false
+      }
+    ],
+    "bottom": [
+      {
+        "name": "邮箱",
+        "id": 9,
+        "disabled": false
+      },
+      {
+        "name": "文件",
+        "id": 7,
+        "disabled": false
+      },
+      {
+        "name": "收藏",
+        "id": 8,
+        "disabled": false
+      }
+    ]
+  },
+  "imageViewer": {
+    "quickClose": true,
+    "touchMove": false
+  },
+  "message": {
+    "previreUrl": {
+      "enabled": true,
+      "dontLoadPic": false
+    },
+    "goBackMainList": false,
+    "disabledSticker": false,
+    "disabledHotGIF": false,
+    "disabledBadge": true,
+    "disabledSlideMultipleSelection": false,
+    "convertMiniPrgmArk": true,
+    "showMsgTime": false,
+    "showMsgElapsedTime": false,
+    "showMsgTimeFormat": "220",
+    "showMsgTimeDateFormat": "000",
+    "showMsgTimeZone": false,
+    "showMsgTimeToSenderName": false,
+    "replaceBtn": true,
+    "doubleClickReplace": true,
+    "removeReplyAt": true,
+    "mergeMessage": false,
+    "mergeMessageKeepTime": false,
+    "selfMsgToLeft": false,
+    "onlyAvatar": false,
+    "unlockMainMinSize": false,
+    "removeBubbleLimit": true,
+    "removeVipName": false,
+    "imageAutoWidth": false,
+    "currentLocation": false,
+    "overrideFont": {
+      "family": "",
+      "style": "",
+      "fullName": "",
+      "postscriptName": ""
+    },
+    "overrideEmoji": true,
+    "preventNSFW": {
+      "enabled": false,
+      "includesAnimationEmoticons": false,
+      "list": []
+    },
+    "avatarSticky": {
+      "enabled": false,
+      "toBottom": false
+    }
+  },
+  "qContextMenu": {
+    "HighlightReplies": true,
+    "customHighlightReplies": {
+      "light": {
+        "copy": "#000000",
+        "forward": "#000000",
+        "collect": "#000000",
+        "multiple": "#000000",
+        "quote": "#008000",
+        "essence": "#fddb00",
+        "revoke": "#ff0000",
+        "delete": "#ff0000"
+      },
+      "dark": {
+        "copy": "#ffffff",
+        "forward": "#ffffff",
+        "collect": "#ffffff",
+        "multiple": "#ffffff",
+        "quote": "#008000",
+        "essence": "#ffdd00",
+        "revoke": "#ff0000",
+        "delete": "#ff0000"
+      }
+    },
+    "wordSearch": {
+      "enabled": true,
+      "searchUrl": "https://www.bing.com/search?q=%search%"
+    },
+    "imageSearch": {
+      "enabled": true,
+      "searchUrl": "https://saucenao.com/search.php?url=%search%"
+    },
+    "messageToImage": {
+      "enabled": true,
+      "highResolution": false,
+      "path": ""
+    }
+  },
+  "preventMessageRecall": {
+    "enabled": true,
+    "localStorage": true,
+    "customColor": false,
+    "preventSelfMsg": false,
+    "blockAllRetractions": true,
+    "cacheHistory": true,
+    "stealthMode": false,
+    "redirectPicPath": false,
+    "textColor": {
+      "light": "#ff6666",
+      "dark": "#c70000"
+    }
+  },
+  "tail": {
+    "enabled": false,
+    "tips": false,
+    "list": []
+  },
+  "textAreaFuncList": [
+    {
+      "name": "表情",
+      "id": "id-func-bar-expression",
+      "disabled": false
+    },
+    {
+      "name": "截图 Ctrl + Alt + A",
+      "id": "id-func-bar-screenshot",
+      "disabled": false
+    },
+    {
+      "name": "文件",
+      "id": "id-func-bar-folder",
+      "disabled": true
+    },
+    {
+      "name": "图片",
+      "id": "id-func-bar-image",
+      "disabled": true
+    },
+    {
+      "name": "红包",
+      "id": "id-func-bar-lucky_money",
+      "disabled": true
+    },
+    {
+      "name": "语音消息",
+      "id": "id-func-bar-microphone_on",
+      "disabled": false
+    },
+    {
+      "name": "机器人指令",
+      "id": "id-func-bar-channel_robot",
+      "disabled": false
+    },
+    {
+      "name": "聊天记录",
+      "id": "id-func-bar-MessageRecord",
+      "disabled": false
+    },
+    {
+      "name": "窗口抖动",
+      "id": "id-func-bar-shake",
+      "disabled": false
+    }
+  ],
+  "chatAreaFuncList": [
+    {
+      "name": "语音通话",
+      "id": "id-func-bar-telephone",
+      "disabled": false
+    },
+    {
+      "name": "视频通话",
+      "id": "id-func-bar-video_on",
+      "disabled": false
+    },
+    {
+      "name": "屏幕共享",
+      "id": "id-func-bar-share_screen",
+      "disabled": false
+    },
+    {
+      "name": "群应用",
+      "id": "id-func-bar-group_application",
+      "disabled": false
+    },
+    {
+      "name": "邀请加群",
+      "id": "id-func-bar-group_building",
+      "disabled": false
+    },
+    {
+      "name": "更多",
+      "id": "id-func-bar-more",
+      "disabled": false
+    },
+    {
+      "name": "远程协助",
+      "id": "id-func-bar-remote_control",
+      "disabled": false
+    },
+    {
+      "name": "屏蔽会话",
+      "id": "id-func-bar-shield",
+      "disabled": false
+    },
+    {
+      "name": "添加好友",
+      "id": "id-func-bar-add_friend",
+      "disabled": false
+    }
+  ],
+  "preventEscape": false,
+  "setWindowIcon": true,
+  "autoRelanch": true,
+  "background": {
+    "overlaySiderBar": true,
+    "removeMask": false,
+    "backgroundVisible": false,
+    "blurFilter": false,
+    "opacity": 0.7,
+    "enabled": true,
+    "url": "C:\\Users\\admin\\Pictures\\Camera Roll\\Doge.jpg"
+  },
+  "global": {
+    "UA": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
+    "rkey": "&rkey=CAQSKAB6JWENi5LMk0kc62l8Pm3Jn1dsLZHyRLAnNmHGoZ3y_gDZPqZt-64",
+    "updateUrl": "https://api.github.com/repos/xiyuesaves/LiteLoaderQQNT-lite_tools/releases/latest",
+    "IMAGE_HTTP_HOST": "https://gchat.qpic.cn",
+    "IMAGE_HTTP_HOST_NT": "https://multimedia.nt.qq.com.cn"
+  },
+  "rkeyAPI": "",
+  "proxy": {
+    "enabled": false,
+    "url": ""
+  },
+  "disableQtag": {
+    "level": false,
+    "title": false,
+    "all": false
+  },
+  "appearance": {
+    "useSystemAccentColor": false,
+    "prioritizeColor": false
+  },
+  "resetLoginInfo": false,
+  "unlockMainMinSize": false
+}

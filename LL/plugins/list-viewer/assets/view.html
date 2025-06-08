@@ -1,0 +1,325 @@
+<setting-section data-title="配置">
+  <style>
+    [class^='list-dialog']::backdrop {
+      background: rgba(0, 0, 100, 0.4);
+    }
+  
+    [class^='list-dialog'] button {
+      cursor: pointer;
+    }
+  
+    button {
+      user-select: none;
+    }
+  
+    .mirror-select {
+      user-select: none;
+    }
+  
+    .manipulate {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+  
+    .list-dialog-install {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+      border-radius: 5px;
+      width: 50%;
+      background-color: var(--bg_white);
+      color: var(--text_primary);
+    }
+  
+    .list-dialog {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+      border-radius: 5px;
+      width: 50%;
+      background-color: var(--background-04);
+      color: var(--text_primary);
+    }
+  
+    .list-dialog-content {
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column;
+      white-space: pre-wrap;
+    }
+  
+    .version-text a,
+    .list-repo {
+      color: #81adef;
+      cursor: pointer;
+    }
+  
+    .list-filter-type-checkbox {
+      display: flex;
+      gap: 10px;
+    }
+    .list-viewer .q-input {
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      border-bottom-left-radius: 4px;
+      box-sizing: border-box;
+      height: 28px;
+      position: relative;
+      width: 100%;
+      background: var(--bg_bottom_light);
+      border: 0px;
+    }
+  
+    .list-viewer .q-input .q-input__clear {
+      align-items: center;
+      bottom: 0px;
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      width: 26px;
+    }
+  
+    .list-viewer .q-input .q-input__prefix {
+      align-items: center;
+      bottom: 0px;
+      display: flex;
+      justify-content: center;
+      left: 0px;
+      position: absolute;
+      top: 0px;
+      user-select: none;
+      width: 8px;
+    }
+  
+    .list-viewer .q-input .q-input__inner--clearable {
+      padding-right: 8px;
+    }
+  
+    .list-viewer .q-input .q-input__inner {
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      border-bottom-left-radius: 4px;
+      box-sizing: border-box;
+      color: var(--text_primary);
+      font-family: inherit;
+      font-size: 14px;
+      height: 28px;
+      line-height: 28px;
+      width: 100%;
+      border: 1px solid transparent;
+      padding: 8px;
+    }
+  
+    .list-viewer .q-input .q-input__inner[type='number']::-webkit-outer-spin-button,
+    .list-viewer .q-input .q-input__inner[type='number']::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  
+    .list-viewer .q-input .q-input__inner:focus {
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      border-bottom-left-radius: 4px;
+      caret-color: var(--brand_standard);
+      border: 1px solid var(--brand_standard);
+    }
+  </style>
+  <setting-panel>
+    <setting-list data-direction="column">
+      <setting-item>
+        <input type="text" id="list-search" placeholder="过滤下方插件，支持插件名、描述、作者名、版本号" style="height: 25px; width: 100%; color: inherit" />
+      </setting-item>
+      <setting-item>
+        <div>
+          <setting-text>根据类型过滤</setting-text>
+        </div>
+        <div class="list-filter-type-checkbox">
+          <!-- <q-radio label="扩展" name="list-filter-type" value="extension"></q-radio>
+          <q-radio label="主题" name="list-filter-type" value="theme"></q-radio>
+          <q-radio label="依赖" name="list-filter-type" value="framework"></q-radio> -->
+          <!-- <label for="list-filter-type-extension">扩展</label><input type="radio" name="list-filter-type" id="list-filter-type-extension" value="extension">
+          <label for="list-filter-type-theme">主题</label><input type="radio" name="list-filter-type" id="list-filter-type-theme" value="theme">
+          <label for="list-filter-type-framework">依赖</label><input type="radio" name="list-filter-type" id="list-filter-type-framework" value="framework"> -->
+        </div>
+      </setting-item>
+      <setting-item data-direction="row">
+        <div>
+          <setting-text>
+            <span style="margin-right: 10px">插件版本：<span class="version-text"></span></span>
+            <span style="margin-right: 10px">插件总数：<span class="total-text"></span></span>
+            <span style="margin-right: 10px"><a class="list-repo">列表仓库</a></span>
+          </setting-text>
+          <setting-text data-type="secondary"> 刷新会禁用缓存并请求，所以会比较慢，可用来检查更新，建议不要频繁刷新 </setting-text>
+        </div>
+        <div>
+          <setting-button data-type="primary" class="refresh-btn">刷新</setting-button>
+        </div>
+      </setting-item>
+      <setting-item data-direction="row">
+        <div>
+          <setting-text>列表排序</setting-text>
+          <setting-text data-type="secondary">选择先后会影响排序</setting-text>
+        </div>
+        <div>
+          <setting-select class="sort-select">
+            <setting-option data-value="default">默认排序</setting-option>
+            <setting-option data-value="installed">已安装</setting-option>
+            <setting-option data-value="outdated">需要更新</setting-option>
+          </setting-select>
+        </div>
+      </setting-item>
+    </setting-list>
+  </setting-panel>
+  <setting-panel>
+    <setting-list data-title="列表获取配置" data-direction="column" is-collapsible>
+      <setting-item data-direction="row">
+        <div>
+          <setting-text>接口超时时间</setting-text>
+          <setting-text data-type="secondary">控制所有请求，不包括图片，最少为3000</setting-text>
+        </div>
+        <div class="manipulate timeout-input"></div>
+      </setting-item>
+      <setting-item data-direction="row">
+        <div>
+          <setting-text>是否使用镜像</setting-text>
+          <setting-text data-type="secondary">使用代理时建议关闭</setting-text>
+        </div>
+        <div class="manipulate">
+          <!-- <div>
+            不使用带缓存的镜像
+            <setting-switch class="mirror-no-cache"></setting-switch>
+          </div> -->
+          <setting-switch class="mirror-switch" is-active></setting-switch>
+          <setting-button class="mirror-add-btn" data-type="secondary">修改镜像</setting-button>
+          <!-- <setting-select class="mirror-select" style="width: 150px;">
+              <setting-option data-value="1" is-selected>不使用镜像</setting-option>
+              <setting-option data-value="2">2</setting-option>
+              <setting-option data-value="3">3</setting-option>
+            </setting-select> -->
+        </div>
+      </setting-item>
+      <setting-item data-direction="row">
+        <div>
+          <setting-text>是否使用github.io</setting-text>
+          <setting-text data-type="secondary"
+            >由<setting-link data-value="">Github Action定时任务</setting-link>自动更新的列表数据源，每两小时更新一次，使用github.io域名访问，可能会加快访问速度</setting-text
+          >
+        </div>
+        <div class="manipulate">
+          <setting-switch class="github-io-switch"></setting-switch>
+        </div>
+      </setting-item>
+      <setting-item data-direction="row">
+        <div>
+          <setting-text>是否使用代理</setting-text>
+          <setting-text data-type="secondary">如果启用且未设置地址会自动获取环境代理，Windows 设置系统代理无效，对页面图片无效</setting-text>
+        </div>
+        <div class="manipulate">
+          <setting-switch class="proxy-switch" is-active></setting-switch>
+          <setting-button class="proxy-set-btn" data-type="secondary">设置代理</setting-button>
+        </div>
+      </setting-item>
+      <setting-item data-direction="row">
+        <div>
+          <setting-text>设置GitHub令牌</setting-text>
+          <setting-text data-type="secondary">遇到请求速率限制时可以填写令牌缓解此问题</setting-text>
+        </div>
+        <div>
+          <setting-button class="githubtoken-set-btn" data-type="secondary">设置</setting-button>
+        </div>
+      </setting-item>
+    </setting-list>
+  </setting-panel>
+</setting-section>
+
+<setting-section data-title="插件列表">
+  <setting-panel>
+    <setting-list data-direction="column" id="plugin-list"> </setting-list>
+  </setting-panel>
+</setting-section>
+
+<div>
+  <style>
+    .scroll-to-top-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: var(--brand_standard);
+      /* 背景颜色 */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      cursor: pointer;
+      position: fixed;
+      right: -30px;
+      bottom: 110px;
+      border-color: var(--brand_standard);
+      transition: all 1.5s cubic-bezier(0.7, 0, 0.84, 0);
+      opacity: 0.3;
+    }
+
+    .scroll-to-top-btn:hover {
+      right: 10px;
+      opacity: 0.7;
+      background-color: var(--nt_brand_standard_2_overlay_hover_brand_2_mix);
+      transition: all 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .triangle-up {
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 15px solid var(--on_brand_primary);
+    }
+  </style>
+  <button class="scroll-to-top-btn">
+    <div class="triangle-up"></div>
+  </button>
+</div>
+
+<dialog class="list-dialog-install">
+  <div style="font-size: large; display: flex; justify-content: space-between">
+    选择包来源
+    <button class="list-dialog-install-btn-close q-button q-button--secondary default-btn" style="width: 25px">×</button>
+  </div>
+  <hr />
+  <div style="color: orangered; margin-bottom: 10px; white-space: pre-wrap">
+    注意： 安装/更新 时会删除插件原文件（不包括配置），如果有修改过的文件，请先备份或者使用 git 进行安装/更新 一般插件都会使用
+    <strong>release</strong> 包进行更新，除非有特殊说明，如果不确定可以点击详情前往插件仓库进行查看
+  </div>
+  <div style="display: flex; justify-content: space-around">
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <setting-button class="list-dialog-btn-repo" data-type="secondary">使用仓库代码包</setting-button>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <setting-button class="list-dialog-btn-release" data-type="secondary">使用release包</setting-button>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="list-dialog">
+  <div style="font-size: large; display: flex; justify-content: space-between">
+    <span class="list-dialog-title">标题</span>
+    <button class="list-dialog-btn-close q-button q-button--secondary default-btn" style="width: 25px">×</button>
+  </div>
+  <hr />
+  <div class="list-dialog-content">
+    <div>content</div>
+  </div>
+  <hr />
+  <div style="display: flex; justify-content: flex-end; gap: 20px">
+    <setting-button class="list-dialog-btn-confirm" data-type="primary">确认</setting-button>
+    <setting-button class="list-dialog-btn-cancel" data-type="secondary">取消</setting-button>
+  </div>
+</dialog>

@@ -1,0 +1,19 @@
+{
+    "inactivePlugins": [],
+    "debug": false,
+    "useMirror": false,
+    "useGithubIO": true,
+    "mirrors": {
+        "downloadUrl": [
+            "https://cdn.jsdelivr.net/gh"
+        ]
+    },
+    "listSortType": "installed",
+    "githubToken": "",
+    "listLastForceUpdate": 1749351637365,
+    "proxy": {
+        "url": "",
+        "enabled": false
+    },
+    "requestTimeout": 3000
+}

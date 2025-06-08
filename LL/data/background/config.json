@@ -1,0 +1,19 @@
+{
+  "imgDir": "C:/LiteloaderQQNT/LL/data/background/imgs",
+  "imgSaveDir": "C:/LiteloaderQQNT/LL/data/background/imgs",
+  "imgFile": "C:/Users/hark2/Pictures/Camera Roll/Doge.jpg",
+  "imgApi": "",
+  "imgApiJsonPath": "",
+  "apiType": "img",
+  "imgSource": "file",
+  "refreshTime": 600,
+  "globalTransparentOffset": 0,
+  "isCommonBg": true,
+  "isAutoRefresh": true,
+  "overrideImgFile": "",
+  "enableBackgroundForMediaViewer": true,
+  "enableFrostedGlassStyle": true,
+  "apiOptions": {
+    "useCache": false
+  }
+}

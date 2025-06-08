@@ -1,0 +1,1 @@
+require(`C:/LiteloaderQQNT/LL/`);

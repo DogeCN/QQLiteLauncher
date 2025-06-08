@@ -1,0 +1,22 @@
+{
+  "name": "qq-chat",
+  "version": "9.9.19-35469",
+  "private": true,
+  "description": "QQ",
+  "productName": "QQ",
+  "author": {
+    "name": "Tencent",
+    "email": "QQ-Team@tencent.com"
+  },
+  "homepage": "https://im.qq.com",
+  "sideEffects": true,
+  "bin": {
+    "qd": "externals/devtools/cli/index.js"
+  },
+  "main": "./LiteLoader_Launcher.js",
+  "buildVersion": "35469",
+  "isPureShell": true,
+  "isByteCodeShell": true,
+  "platform": "win32",
+  "eleArch": "x64"
+}

@@ -1,0 +1,1 @@
+"use strict";const r=require("electron"),t=r.contextBridge.exposeInMainWorld;t("ListViewer",{getPkg:(e,i)=>r.ipcRenderer.invoke("LiteLoader.ListViewer.getPkg",e,i),removePkg:e=>r.ipcRenderer.invoke("LiteLoader.ListViewer.removePkg",e),log:(...e)=>r.ipcRenderer.send("LiteLoader.ListViewer.removePkg",...e),request:(e,i)=>r.ipcRenderer.invoke("LiteLoader.ListViewer.request",e,i)});

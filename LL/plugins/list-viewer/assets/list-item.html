@@ -1,0 +1,168 @@
+<style>
+  img.icon {
+    width: 60px;
+    min-height: 60px;
+    border-radius: 10px;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  :host(.highlight-item) .plugin-item-info {
+    animation: highlightAnimation 2s ease-out 1;
+  }
+
+  /* 动画关键帧 */
+  @keyframes highlightAnimation {
+    0% {
+      background-color: orange;
+      box-shadow: 0 0 10px 10px orange;
+    }
+
+    100% {
+      background-color: transparent;
+      box-shadow: 0 0 1px 1px transparent;
+    }
+  }
+
+  .authors {
+    display: inline-flex;
+    gap: 10px;
+    justify-content: space-between;
+  }
+
+  .authors a {
+    color: #81adef;
+    cursor: pointer;
+  }
+
+  .manipulate {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .dependencies a {
+    color: green;
+    cursor: pointer;
+  }
+
+  .description {
+    white-space: pre-wrap;
+    /* background-color: green; */
+    display: block;
+  }
+
+  .text {
+    /* word-break:keep-all; */
+    text-overflow: ellipsis;
+    line-clamp: 3;
+    overflow: hidden;
+  }
+
+  .text.secondary {
+    color: var(--text_secondary);
+    font-size: min(var(--font_size_2), 16px);
+    line-height: min(var(--line_height_2), 22px);
+    margin-top: 4px;
+  }
+
+  .failed,
+  .uninstall,
+  .update,
+  .inactive-tag,
+  .newer-version,
+  .dependencies,
+  .lower4,
+  .run-away,
+  .manual-update {
+    display: none;
+  }
+
+  :host([data-failed]) .failed {
+    display: unset;
+  }
+
+  :host([data-failed]) .success {
+    display: none;
+  }
+
+  :host([data-installed='1']) .uninstall {
+    display: unset;
+  }
+
+  :host([data-installed='1']) .install {
+    display: none;
+  }
+
+  :host([data-update='1']) .update {
+    display: unset;
+  }
+
+  :host([data-update='1']) .newer-version {
+    display: inline;
+    color: skyblue;
+    padding-left: 5px;
+  }
+
+  :host([data-inactive='1']) .inactive-tag {
+    display: inline;
+  }
+
+  :host([data-dependencies='1']) .dependencies {
+    display: inline;
+  }
+
+  :host([data-lower4='1']) .lower4 {
+    display: inline;
+    color: var(--feedback_warning);
+    padding-left: 5px;
+  }
+
+  :host([data-run='1']) .run-away {
+    display: inline;
+    color: var(--feedback_error);
+    padding-left: 5px;
+  }
+
+  :host([data-manual-update='1']) .manual-update {
+    display: inline;
+    color: var(--feedback_warning);
+    padding-left: 5px;
+  }
+</style>
+<setting-item data-direction="row">
+  <div class="plugin-item-info">
+    <div style="display: flex; gap: 10px; margin-bottom: 10px">
+      <img class="icon" src="" />
+      <div>
+        <div class="text">
+          <span class="title" title="插件名">插件名</span>
+          <span class="inactive-tag" title="需要重启qq">(未激活)</span>
+          <span class="lower4" title="manifest版本小于4">(&lt;4)</span>
+          <span class="run-away" title="404 Not Found">(疑似跑路)</span>
+          <span class="manual-update" >(需要手动更新)</span>
+        </div>
+        <div class="text secondary">
+          <div class="description" title="插件描述">插件描述</div>
+        </div>
+      </div>
+    </div>
+    <div class="text secondary">
+      <div style="display: flex;gap: 5px 30px;flex-wrap: wrap;">
+        <span>版本：<span class="version">版本</span><span class="newer-version"></span>
+        </span>
+        <span>开发：<span class="authors"></span></span>
+        <span>类型：<span class="type"></span></span>
+        <span>平台：<span class="platforms"></span></span>
+        <span class="dependencies">依赖：<span class="items"></span></span>
+      </div>
+    </div>
+  </div>
+  <div class="manipulate">
+    <setting-button class="success update" data-type="primary">更新</setting-button>
+    <setting-button class="success install" data-type="primary">安装</setting-button>
+    <setting-button class="success uninstall" data-type="secondary">卸载</setting-button>
+    <setting-button class="failed retry" data-type="primary">重试</setting-button>
+    <setting-button class="detail" data-type="secondary">详情</setting-button>
+  </div>
+</setting-item>
