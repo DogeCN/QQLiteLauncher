@@ -1,1 +1,1 @@
-require(`C:/LiteloaderQQNT/LL/`);
+require(`E:/Develop/Other/LiteloaderQQNT/LL/`);
